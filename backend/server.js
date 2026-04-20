@@ -50,7 +50,7 @@ app.use(errorHandler);
 // Start server
 app.listen(PORT, () => {
   console.log('\n===========================================');
-  console.log(`Eye in the Sky - Backend Server`);
+  console.log(`Electric Eye - Backend Server`);
   console.log('===========================================');
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`Server running on port ${PORT}`);

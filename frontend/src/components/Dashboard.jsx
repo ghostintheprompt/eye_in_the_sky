@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 
 const APP_VERSION = 'v1.0.0';
-const GITHUB_REPO = 'ghostintheprompt/eye-in-the-sky';
+const GITHUB_REPO = 'ghostintheprompt/electric_eye';
 
 export default function Dashboard() {
   const { user, logout } = useAuth();
@@ -80,7 +80,7 @@ export default function Dashboard() {
               <img src="/icon.png" alt="Eye" className="h-8 w-8 object-contain" />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tighter uppercase">Eye in the Sky</h1>
+              <h1 className="text-xl font-bold tracking-tighter uppercase">Electric Eye</h1>
               <p className="text-xs text-blue-400 font-bold">Orbital Surveillance Station</p>
             </div>
           </div>
