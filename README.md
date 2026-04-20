@@ -1,13 +1,13 @@
-# ![Eye in the Sky](icon.png)
+# ![Electric Eye](icon.png)
 
-# Eye in the Sky
+# Electric Eye
 ### Secure Local Perimeter Monitoring Station
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey.svg)](https://apple.com)
 [![Release: v1.0.0](https://img.shields.io/badge/Release-v1.0.0-blue.svg)](https://github.com/ghostintheprompt/eye-in-the-sky/releases)
 
-Eye in the Sky is a lightweight, privacy-first security camera management system designed for local network surveillance. Built with a Judas Priest-inspired aesthetic and MDRN Corp engineering standards, it provides a secure gateway to your local camera feeds without cloud dependencies.
+Electric Eye is a lightweight, privacy-first security camera management system designed for local network surveillance. Built with a Heavy Metal inspired aesthetic and MDRN Corp engineering standards, it provides a secure gateway to your local camera feeds without cloud dependencies.
 
 | Feature | Status | Description |
 | :--- | :--- | :--- |
@@ -36,7 +36,7 @@ See [BUILD.md](BUILD.md) for detailed instructions.
 3. **Monitor:** Access your local surveillance gateway.
 
 ## Privacy Statement
-Eye in the Sky is **local-only**. We do not collect telemetry, usage data, or personal information. Your surveillance data never leaves your network. No accounts, no subscriptions, no bloat.
+Electric Eye is **local-only**. We do not collect telemetry, usage data, or personal information. Your surveillance data never leaves your network. No accounts, no subscriptions, no bloat.
 
 ---
 Built by **MDRN Corp** — [mdrn.app](https://mdrn.app)
