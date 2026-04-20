@@ -1,6 +1,6 @@
-# Building Eye in the Sky
+# Building Electric Eye
 
-Follow these steps to build Eye in the Sky from source on macOS.
+Follow these steps to build Electric Eye from source on macOS.
 
 ### Prerequisites
 - Node.js 20+
@@ -8,8 +8,8 @@ Follow these steps to build Eye in the Sky from source on macOS.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/ghostintheprompt/eye-in-the-sky.git
-cd eye-in-the-sky
+git clone https://github.com/ghostintheprompt/electric_eye.git
+cd electric_eye
 ```
 
 ### 2. Install Dependencies
