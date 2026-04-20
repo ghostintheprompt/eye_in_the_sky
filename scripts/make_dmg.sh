@@ -10,9 +10,10 @@ PACKAGE_ROOT="$VOLUME_NAME"
 STAGING_DIR=""
 TMP_DMG=""
 SQUARE_ICON=""
+GENERATED_ICNS=""
 
 cleanup() {
-  rm -rf "$ICON_NAME.iconset" "${STAGING_DIR:-}" "${TMP_DMG:-}" "${SQUARE_ICON:-}"
+  rm -rf "$ICON_NAME.iconset" "${STAGING_DIR:-}" "${TMP_DMG:-}" "${SQUARE_ICON:-}" "${GENERATED_ICNS:-}"
 }
 
 trap cleanup EXIT
@@ -36,7 +37,13 @@ sips -z 512 512   "$SQUARE_ICON" --out "$ICON_NAME.iconset/icon_256x256@2x.png"
 sips -z 512 512   "$SQUARE_ICON" --out "$ICON_NAME.iconset/icon_512x512.png"
 sips -z 1024 1024 "$SQUARE_ICON" --out "$ICON_NAME.iconset/icon_512x512@2x.png"
 
-iconutil -c icns "$ICON_NAME.iconset"
+GENERATED_ICNS="${TMPDIR:-/tmp}/${ICON_NAME}.$$.icns"
+if iconutil -c icns "$ICON_NAME.iconset" -o "$GENERATED_ICNS"; then
+  mv "$GENERATED_ICNS" "$ICON_NAME.icns"
+else
+  echo "Icon generation failed; using existing $ICON_NAME.icns"
+  test -f "$ICON_NAME.icns"
+fi
 cp "$ICON_NAME.icns" "$APP_BUNDLE/Contents/Resources/" 2>/dev/null || echo "Icon generated (skipping app bundle injection for web-stack)"
 
 # Create distribution DMG
