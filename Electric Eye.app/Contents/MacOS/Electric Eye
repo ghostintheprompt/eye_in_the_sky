@@ -1,0 +1,51 @@
+#!/bin/bash
+# Electric Eye - Orbital Entry Point
+DIR="$(cd "$(dirname "$0")" && pwd)"
+BASE_DIR="$DIR/../Resources/app"
+BACKEND_DIR="$BASE_DIR/backend"
+FRONTEND_DIR="$BASE_DIR/frontend"
+
+echo "Initializing Electric Eye..."
+
+# Ensure we are in the right environment
+export NODE_ENV=production
+export PORT=5000
+
+# Function to kill child processes on exit
+cleanup() {
+  echo "De-orbiting..."
+  kill $(jobs -p) 2>/dev/null
+  exit
+}
+trap cleanup SIGINT SIGTERM EXIT
+
+# Check for Node.js
+if ! command -v node &> /dev/null; then
+    osascript -e 'display dialog "Node.js not found. Please install Node.js to run Electric Eye." buttons {"OK"} default button "OK" with icon stop'
+    exit 1
+fi
+
+# Link .env if exists in app root or create from example
+if [ ! -f "$BASE_DIR/.env" ]; then
+    if [ -f "$HOME/.electric_eye.env" ]; then
+        cp "$HOME/.electric_eye.env" "$BASE_DIR/.env"
+    else
+        cp "$BASE_DIR/.env.example" "$BASE_DIR/.env"
+        # Open .env for user to configure on first run? 
+        # For now, just use defaults.
+    fi
+fi
+
+# Start Backend
+cd "$BACKEND_DIR"
+node server.js &
+BACKEND_PID=$!
+
+# Wait for server to wake up
+sleep 2
+
+# Open Browser
+open "http://localhost:5000"
+
+# Keep script alive
+wait $BACKEND_PID
